@@ -3,82 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saikci - 个人网站</title>
+    <title>博客</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav>
-        <ul>
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Saikci</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#projects">项目</a></li>
+                <li><a href="#blog">博客</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
     <!-- 主页横幅 -->
     <section class="hero" id="home">
-        <h1>欢迎来到 Saikci 的个人网站</h1>
-        <p>探索技术，创造未来</p>
+        <div class="hero-content">
+            <h1 class="fade-in">你好，我是 Saikci</h1>
+            <p class="typing-text">技术博主</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('projects')">查看项目</button>
+                <button class="btn-secondary" onclick="scrollToSection('contact')">联系我</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>向下滚动</span>
+            <div class="arrow"></div>
+        </div>
     </section>
 
     <!-- 主要内容 -->
     <div class="container">
         <!-- 关于部分 -->
-        <section id="about">
-            <h2>关于我们</h2>
-            <div class="card">
-                <h3>个人简介</h3>
-                <p>这里可以介绍你自己，包括你的技能、经验和兴趣。这是一个展示你个人特色的好地方。</p>
+        <section id="about" class="fade-section">
+            <h2>关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>👨‍💻 开发者简介</h3>
+                    <p>我是一名热爱编程的全栈开发者，专注于 Web 应用开发和云原生技术。过去 5 年里，我参与了多个企业级项目的开发，从前端界面到后端架构都有深入实践。</p>
+                    <p>工作之余，我喜欢探索新技术、贡献开源项目，并通过博客分享学习心得。我相信代码不仅是工具，更是创造价值的艺术。</p>
+                    
+                    <div class="skills">
+                        <h4>技术栈</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">完成项目</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">年经验</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">GitHub Stars</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- 项目部分 -->
-        <section id="projects">
-            <h2>项目展示</h2>
+        <section id="projects" class="fade-section">
+            <h2>精选项目</h2>
             <div class="card-grid">
-                <div class="card">
-                    <h3>项目一</h3>
-                    <p>描述你的第一个项目，包括使用的技术和项目亮点。</p>
+                <div class="card project-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="card-content">
+                        <h3>CloudDeploy Pro</h3>
+                        <p>基于 Kubernetes 的自动化部署平台，支持多环境配置管理和一键回滚功能。采用 Go + React 技术栈，服务超过 20 家企业客户。</p>
+                        <div class="project-tech">
+                            <span>Go</span>
+                            <span>React</span>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-link">查看详情 →</a>
+                            <a href="#" class="btn-link">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>项目二</h3>
-                    <p>描述你的第二个项目，展示你的技能和经验。</p>
+                <div class="card project-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="card-content">
+                        <h3>DataViz Dashboard</h3>
+                        <p>实时数据可视化仪表盘，支持多种图表类型和自定义数据源。使用 D3.js 和 WebSocket 实现毫秒级数据更新，日均处理百万级数据点。</p>
+                        <div class="project-tech">
+                            <span>D3.js</span>
+                            <span>WebSocket</span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-link">查看详情 →</a>
+                            <a href="#" class="btn-link">GitHub</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>项目三</h3>
-                    <p>描述你的第三个项目，突出创新点和技术挑战。</p>
+                <div class="card project-card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="card-content">
+                        <h3>AI Chat Assistant</h3>
+                        <p>基于大语言模型的智能客服系统，支持多轮对话和上下文理解。集成 RAG 技术提升回答准确性，已应用于电商和金融行业。</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>LangChain</span>
+                            <span>FastAPI</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-link">查看详情 →</a>
+                            <a href="#" class="btn-link">GitHub</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- 博客部分 -->
+        <section id="blog" class="fade-section">
+            <h2>最新博客</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-date">2026-08-10</div>
+                    <h3>深入理解 React Server Components</h3>
+                    <p>RSC 如何改变我们构建 React 应用的方式？本文从原理到实践，带你全面掌握这一新特性...</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">2026-08-05</div>
+                    <h3>Kubernetes 最佳实践：从零到生产</h3>
+                    <p>总结过去一年在生产环境使用 K8s 的经验教训，包括资源管理、监控告警和安全配置...</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">2026-07-28</div>
+                    <h3>TypeScript 高级类型技巧</h3>
+                    <p>条件类型、映射类型、模板字面量类型...这些高级特性能让你的代码更健壮、更易维护...</p>
+                    <a href="#" class="read-more">阅读全文 →</a>
+                </article>
+            </div>
+        </section>
+
         <!-- 联系部分 -->
-        <section id="contact">
-            <h2>联系我们</h2>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">姓名</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="contact" class="fade-section">
+            <h2>联系我</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>保持联系</h3>
+                    <p>有项目合作意向或技术交流需求？欢迎通过以下方式联系我：</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="icon">📧</span>
+                            <span>saikci@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">💼</span>
+                            <span>LinkedIn: /in/saikci</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">🐙</span>
+                            <span>GitHub: @saikci</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">邮箱</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">留言</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit">发送消息</button>
-                </form>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required placeholder="你的名字">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">主题</label>
+                            <input type="text" id="subject" name="subject" required placeholder="消息主题">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" required placeholder="想说什么..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">发送消息</button>
+                    </form>
+                </div>
             </div>
         </section>
     </div>
 
     <!-- 页脚 -->
     <footer>
-        <p>&copy; 2026 Saikci. 保留所有权利。</p>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" title="GitHub">GitHub</a>
+                <a href="#" title="Twitter">Twitter</a>
+                <a href="#" title="LinkedIn">LinkedIn</a>
+                <a href="#" title="Blog">Blog</a>
+            </div>
+            <p>&copy; 2026 Saikci. Built with ❤️ and lots of ☕</p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>
